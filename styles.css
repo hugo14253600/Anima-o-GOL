@@ -1,1 +1,98 @@
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
 
+.container {
+    position: relative;
+    width: 70%;
+    height: 70%;
+}
+
+.goal {
+    position: relative;
+    width: 50%;
+    height: 90px;
+    border: 5px solid #000;
+    border-radius: 10px;
+    margin: 0 auto;
+    background-color: #fff;
+    overflow: hidden;
+}
+
+.line {
+    position: absolute;
+    bottom: 75%;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background-color: gray;
+}
+
+.ball {
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 50px;
+    background: black;
+    border-radius: 50%;
+    animation: moveBall 6s linear infinite;
+}
+
+@keyframes moveBall {
+    0%, 100% {
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    50% {
+        bottom: 85%;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}
+
+.goal-text {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 3rem;
+    font-weight: bold;
+    opacity: 0;
+    animation: showText 6s linear infinite;
+}
+
+@keyframes showText {
+    0%, 49.99% {
+        opacity: 0;
+    }
+    50%, 100% {
+        opacity: 1;
+    }
+}
+
+@keyframes colorChange {
+    0% {
+        color: green;
+    }
+    33% {
+        color: blue;
+    }
+    66% {
+        color: yellow;
+    }
+    100% {
+        color: green;
+    }
+}
+
+.goal-text {
+    animation: showText 6s linear infinite, colorChange 6s infinite;
+}
